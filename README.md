@@ -1,36 +1,31 @@
-1
-# Локальные каталоги .terraform
-**/.terraform/*
 
-#Файлы .
+#игнорируем папки .terraform и их содержимое
+**/.terraform/*
+#игнорируем файлы, начинающиеся и заканчивающиеся на tfstate и содержащие tfstate
 tfstate *.tfstate
 *.tfstate.*
+#ингнорируем файл crash.log и файл, начинающийся на crash. и заканчивающийся на .log
+crash.log
+crash.*.log
 
-# Файлы
-журнала сбоев crash.log
-сбой.*.log
-
-# Исключите все файлы .tfvars, которые могут содержать конфиденциальные данные, такие как
-# пароль, закрытые ключи и другие секреты. 
+#игнорируем все файлы, заканчивающиеся на .tfvars и на .tfvars.json
 *.tfvars
 *.tfvars.json
 
-# Игнорируйте файлы переопределения, поскольку они обычно используются для локального переопределения ресурсов и поэтому
-# не проверяются в override.tf
+#игнорируем файлы override.tf.json, окнчивающиеся на _override.tf и _override.tf.json
 override.tf.json
 *_override.tf
 *_override.tf.json
 
-# Игнорируйте файлы информации о временной блокировке, созданные terraform apply
+# игнорируем все файлы .terraform.tfstate.lock.info
 .terraform.tfstate.lock.info
 
-# Включить переопределение файлов, которые вы хотите добавить в систему управления версиями, используя шаблон 
+# исключаем файлы из игнора по знаку !
 # !example_override.tf
 
-# Включите файлы tfplan, чтобы игнорировать вывод команды: terraform plan -out=tfplan
+# игорируем все файлы, содержащие tf plan
 # # пример: *tf plan*
 
-# Игнорируйте файлы конфигурации CLI
+# игнорируем все файлы .terraformrc и terraform.rc
 .terraformrc
-terraform.rc# devops-netology
-
+terraform.rc
